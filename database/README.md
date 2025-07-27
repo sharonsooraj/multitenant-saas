@@ -1,53 +1,62 @@
-# Laravel Multi-Tenant SaaS Project
+# Multi-Tenant SaaS Application – Laravel 12
 
-A Laravel 12-based multi-tenant SaaS application with role-based access, tenant data isolation, and company-specific invoicing.
+This project is a multi-tenant SaaS application built with Laravel 12, supporting multiple companies, separate invoicing, and tenant-based data isolation.
 
-## 🚀 Setup Instructions
+## 🚀 Features
 
-1. Clone the repository:
-git clone https://github.com/your-username/laravel-multitenant-saas.git
-
-markdown
-Copy
-Edit
-2. Install dependencies:
-composer install
-npm install && npm run dev
-cp .env.example .env
-php artisan key:generate
-
-markdown
-Copy
-Edit
-
-3. Configure your `.env` file and database.
-
-4. Run migrations and seeders:
-php artisan migrate --seed
-
-yaml
-Copy
-Edit
-
-## 📡 API Endpoints
-
-| Method | Endpoint        | Description         |
-|--------|------------------|---------------------|
-| GET    | /invoices        | List all invoices   |
-| POST   | /invoices        | Create invoice      |
-| GET    | /companies       | List companies      |
-
-## 🧠 Multi-Tenant Logic
-
-- Each company (tenant) has its own invoices and clients.
-- Data is scoped by `company_id`.
-- Admins can manage multiple companies.
+- Laravel 12 with Bootstrap 5 UI
+- Company-based multi-tenant
+- 
 
 ---
 
-## 📦 Tech Stack
+## 🔧 Setup Instructions
 
-- Laravel 12
-- Bootstrap 5
-- MySQL
-- SaaS Multi-Tenant Architecture
+1. **Clone the repository**
+   
+   git clone https://github.com/sharonsooraj/multitenant-saas.git
+   cd multitenant-saas
+Install dependencies
+
+
+composer install
+npm install && npm run dev
+Environment setup
+
+cp .env.example .env
+php artisan key:generate
+
+DB_DATABASE=your_db
+DB_USERNAME=root
+DB_PASSWORD=your_password
+Run migrations:
+
+
+php artisan migrate
+
+
+php artisan serve
+
+
+## 🔌 API Endpoints
+
+### 🔐 Auth
+
+| Method | Endpoint        | Description       |
+|--------|-----------------|-------------------|
+| POST   | /api/register   | User registration |
+| POST   | /api/login      | User login        |
+| POST   | /api/logout     | User logout       |
+
+---
+
+### 🏢 Companies
+
+| Method | Endpoint            | Description              |
+|--------|---------------------|--------------------------|
+| GET    | /api/companies      | List all companies       |
+| POST   | /api/companies      | Create a new company     |
+| PUT    | /api/companies/{id} | Update a company         |
+| DELETE | /api/companies/{id} | Delete a company         |
+
+
